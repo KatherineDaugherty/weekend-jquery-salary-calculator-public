@@ -62,9 +62,9 @@ function calculateMonthlyTotal() {
     for (let employee of employeeList) {
         annualTotals += Number(employee.annualSalary);
     }
-        monthlyTotals = (annualTotals/12);
-        // monthlyTotals = currencyToString(monthlyTotals);
-    
+    monthlyTotals = (annualTotals / 12);
+    // monthlyTotals = currencyToString(monthlyTotals);
+
     // let displayTotals = $(`#budgetOut`);
     // displayTotals.empty();
     // displayTotals.append(monthlyTotals);
@@ -74,12 +74,12 @@ function calculateMonthlyTotal() {
     }
 
     $(`#budgetOut`).text(currencyToString(monthlyTotals))
-} 
+}
 
 function currencyToString(number) {
     return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits: 2,
+        style: 'currency',
+        currency: 'USD',
+        maximumFractionDigits: 2,
     }).format(number);
 }
