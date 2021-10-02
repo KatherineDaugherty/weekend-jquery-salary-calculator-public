@@ -1,15 +1,22 @@
-body{
-    background-color: aquamarine;
-    font-family:Arial, Helvetica, sans-serif
+.belowTheHeader{
+    margin-top: 15pt !important;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-left: 15pt !important;
+    margin-right: 15pt !important;
+}
+
+.inputFields{
+    margin-bottom: 15px;
 }
 
 .header{
     text-align: center;
-    font-size: 30px;
+    font-size: 35px;
+    font-weight: bold;
     background-color: grey;
     color: white;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .tableHead{
@@ -24,19 +31,10 @@ body{
     text-align: right;
 }
 
-th{
-    padding-left: 20px;
-    padding-right: 20px;
-}
-table{
-    width: 100%
-}
-table, td{
-
-    border-style:solid ;
-}
-
 .deleteButton{
     margin:auto;
     display: block;
+}
+.right{
+    text-align: right;
 }

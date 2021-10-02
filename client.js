@@ -13,7 +13,6 @@ function deleteEmployee() {
     // console.log('DELETE'); //check 
     $(this).closest(`tr`).remove();
 }
-
 function addEmployee() {
     // console.log('click'); //check click
     const firstName = $(`#firstName`).val();
@@ -36,7 +35,6 @@ function addEmployee() {
     render();
     calculateMonthlyTotal();
 }
-
 function render() {
     $(`#target`).empty();
 
@@ -47,35 +45,22 @@ function render() {
     <td>${employee.lastName}</td>
     <td>${employee.id}</td>
     <td>${employee.title}</td>
-    <td>${employee.annualSalary}</td>
+    <td class="right"> $ ${employee.annualSalary}</td>
     <td><button class="deleteButton"> Delete </button></td>
 </tr>
 `);
-        //conditional for Monthly salary background 
-        // if (employee.annualSalary > 20000) {
-        //     row.addClass('highSalary')
-        // }
         $(`#target`).append(row);
     }
 }
-
 function calculateMonthlyTotal() {
-    //console.log('calculate remaining total'); //check
     let monthlyTotals = 0;
     for (let employee of employeeList) {
         monthlyTotals += Number(employee.annualSalary);
     }
-    console.log(monthlyTotals);
-
     let displayTotals = $(`#budgetOut`);
     displayTotals.empty();
     displayTotals.append(monthlyTotals);
-
     if (monthlyTotals > 20000) {
-        console.log('highSalary');  //triggered
-
         $(`#budgetOut`).addClass('highSalary');
     }
-    //     //if >20000 append DOM monthlyTotals to Red background
-
 } //end calculateMonthlyTotals 

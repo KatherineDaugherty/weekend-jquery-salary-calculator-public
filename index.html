@@ -6,41 +6,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
     <script src="jquery-3.6.0.min.js"></script>
     <script src="client.js"></script>
     <title>Salary Calculator</title>
 </head>
 
+
+
 <body>
     <header class="header"> Salary Calculator </header>
-    <H2>Add Employee</H2>
-    <div>
-        <input placeholder="First Name" id="firstName">
-        <input placeholder="Last Name" id="lastName">
-        <input placeholder="ID" id="id">
-        <input placeholder="Title" id="title">
-        <input placeholder="Annual Salary" id="annualSalary">
-        <button id="addEmployee"> Submit </button>
-    </div>
+    <div class="belowTheHeader">
+        <H2>Add Employee</H2>
+        <div class="inputFields">
+            <input placeholder="First Name" id="firstName">
+            <input placeholder="Last Name" id="lastName">
+            <input placeholder="ID" id="id">
+            <input placeholder="Title" id="title">
+            <input placeholder="Annual Salary" id="annualSalary">
+            <button id="addEmployee"> Submit </button>
+        </div>
 
-    <div>
-        <table class="border">
-            <thead class="tableHead">
-                <tr>
-                    <th> First Name </th>
-                    <th> Last Name </th>
-                    <th> ID </th>
-                    <th> Title </th>
-                    <th> Annual Salary </th>
-                    <th> </th>
-                </tr>
-            </thead>
-            <tbody id="target">
-                <!-- jquery things will go here  -->
-            </tbody>
-        </table>
+        <h3>Employees</h3>
+        <div>
+            <table class="table table-bordered table-striped">
+                <thead class="tableHead">
+                    <tr>
+                        <th> First Name </th>
+                        <th> Last Name </th>
+                        <th> ID </th>
+                        <th> Title </th>
+                        <th> Annual Salary </th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody id="target">
+                    <!-- jquery things will go here  -->
+                </tbody>
+            </table>
+        </div>
+        <footer class="footer"> Total Monthly: $<span id="budgetOut"> 0 </span></footer>
     </div>
-    <footer class="footer"> Total Monthly: $<span id="budgetOut"> 0 </span></footer>
 </body>
 
 </html>
