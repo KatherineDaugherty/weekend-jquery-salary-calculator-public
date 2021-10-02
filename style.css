@@ -35,3 +35,8 @@ table, td{
 
     border-style:solid ;
 }
+
+.deleteButton{
+    margin:auto;
+    display: block;
+}
