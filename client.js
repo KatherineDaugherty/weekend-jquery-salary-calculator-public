@@ -1,5 +1,6 @@
 console.log('JS Loaded');
 let employeeList = [];
+let monthlyTotals = 0;
 
 $(handleStart);
 
@@ -24,7 +25,7 @@ function addEmployee() {
         title: $(`#title`).val(),
         annualSalary: $(`#annualSalary`).val(),
     }
-    console.log(employee);
+    // console.log(employee);
     employeeList.push(employee);
     $(`#firstName`).val('');
     $(`#lastName`).val('');
@@ -45,22 +46,40 @@ function render() {
     <td>${employee.lastName}</td>
     <td>${employee.id}</td>
     <td>${employee.title}</td>
-    <td class="right"> $ ${employee.annualSalary}</td>
+    <td class="right"> ${currencyToString(employee.annualSalary)}</td>
     <td><button class="deleteButton"> Delete </button></td>
 </tr>
 `);
         $(`#target`).append(row);
     }
+    monthlyExpenses = calculateMonthlyTotal();
+    $(`#budgetOut`).text(currencyToString(monthlyExpenses));
 }
+
 function calculateMonthlyTotal() {
-    let monthlyTotals = 0;
+    let annualTotals = 0;
+
     for (let employee of employeeList) {
-        monthlyTotals += Number(employee.annualSalary);
+        annualTotals += Number(employee.annualSalary);
     }
-    let displayTotals = $(`#budgetOut`);
-    displayTotals.empty();
-    displayTotals.append(monthlyTotals);
+        monthlyTotals = (annualTotals/12);
+        // monthlyTotals = currencyToString(monthlyTotals);
+    
+    // let displayTotals = $(`#budgetOut`);
+    // displayTotals.empty();
+    // displayTotals.append(monthlyTotals);
+
     if (monthlyTotals > 20000) {
         $(`#budgetOut`).addClass('highSalary');
     }
-} //end calculateMonthlyTotals 
+
+    $(`#budgetOut`).text(currencyToString(monthlyTotals))
+} 
+
+function currencyToString(number) {
+    return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 2,
+    }).format(number);
+}
